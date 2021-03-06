@@ -3,7 +3,7 @@
  * Plugin Name: Dynamic Pricing for WooCommerce
  * Plugin URI: https://github.com/bart-jaskulski/woo-dynamic-pricing
  * Description: Opinionated dynamic pricing for WooCommerce.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Dentonet
  * Author URI: https://dentonet.pl
  * Developer: Bart Jaskulski
