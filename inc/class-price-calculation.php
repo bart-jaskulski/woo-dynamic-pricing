@@ -58,14 +58,17 @@ class Price_Calculation {
 	 * @return array Array of prices on success.
 	 */
 	public function get_prices_array( bool $formatted = false ) : array {
-		$this->calculate_prices();
+		$prices_array = array();
+		if ( $this->calculate_prices() ) {
 
-		$prices_array = array(
-			'initial_price' => $formatted ? wc_price( $this->initial_price ) : $this->initial_price,
-			'single_price' => $formatted ? wc_price( $this->single_price ) : $this->single_price,
-			'total_price' => $formatted ? wc_price( $this->total_price ) : $this->total_price,
-			'discount' => $this->discount,
-		);
+			$prices_array = array(
+				'initial_price' => $formatted ? wc_price( $this->initial_price ) : $this->initial_price,
+				'single_price' => $formatted ? wc_price( $this->single_price ) : $this->single_price,
+				'total_price' => $formatted ? wc_price( $this->total_price ) : $this->total_price,
+				'discount' => $this->discount,
+			);
+			
+		}
 
 		return $prices_array;
 	}
@@ -78,9 +81,12 @@ class Price_Calculation {
 	private function calculate_prices() : bool {
 		$product = wc_get_product( $this->product_id );
 		$quantity = $this->quantity;
-		$prices_array = array();
 		if ( $product ) {
 			$initial_price = $product->get_price();
+
+			if ( $initial_price < 1 ) {
+				return false;
+			}
 			// Do not exceed that quantity when diminishing price.
 			$threshold = $product->get_meta( '_max_quantity' );
 			// Return early if product not marked for dynamic pricing.

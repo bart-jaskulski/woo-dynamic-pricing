@@ -52,7 +52,7 @@ class Update_Price_Form_Handler implements Component_Interface {
 	 */
 	public function action_update_cart_button_after_form() {
 		?>
-		<button class='is-full-width is-disabled is-normal-text' id="update_cart"><?php esc_html_e( 'Update cart', 'asysdent-theme' ); ?></button>
+		<button class='is-disabled has-background' id="update_cart"><?php esc_html_e( 'Update cart', 'asysdent-theme' ); ?></button>
 		<?php
 	}
 
