@@ -5,7 +5,7 @@ class UpdatePrice {
 
 	actionName = 'update_cart';
 	_nonce = wooPrice.dynamicPriceNonce;
-	_endpoint = woocommerce_params.ajax_url;
+	_endpoint = wooPrice.ajaxUrl;
 	_form = document.getElementById( 'add_to_cart_form' );
 	_ticketType = document.getElementById( 'typ-biletu' );
 	_quantity = document.getElementsByClassName( 'quantity' )[ 0 ].children.quantity;
