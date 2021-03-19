@@ -62,12 +62,12 @@ class Price_Calculation {
 		if ( $this->calculate_prices() ) {
 
 			$prices_array = array(
-				'initial_price' => $formatted ? wc_price( $this->initial_price ) : $this->initial_price,
-				'single_price' => $formatted ? wc_price( $this->single_price ) : $this->single_price,
-				'total_price' => $formatted ? wc_price( $this->total_price ) : $this->total_price,
+				'initial_price' => "{$this->initial_price} zł",
+				'single_price' => "{$this->single_price} zł",
+				'total_price' => "{$this->total_price} zł",
 				'discount' => $this->discount,
 			);
-			
+
 		}
 
 		return $prices_array;

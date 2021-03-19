@@ -3,19 +3,19 @@
  */
 class UpdatePrice {
 
-	actionName = 'update_cart';
-	_nonce = wooPrice.dynamicPriceNonce;
-	_endpoint = wooPrice.ajaxUrl;
-	_form = document.getElementById( 'add_to_cart_form' );
-	_ticketType = document.getElementById( 'typ-biletu' );
-	_quantity = document.getElementsByClassName( 'quantity' )[ 0 ].children.quantity;
-
 	/**
 	 * Class constructor. Stores button in object and fires event listener.
 	 * @param  {[HTMLElement]} button Button to which you attach class with event.
 	 */
 	constructor(button) {
 		this.button = button;
+
+		this.actionName = 'update_cart';
+		this._nonce = wooPrice.dynamicPriceNonce;
+		this._endpoint = wooPrice.ajaxUrl;
+		this._form = document.getElementById( 'add_to_cart_form' );
+		this._ticketType = document.getElementById( 'typ-biletu' );
+		this._quantity = document.getElementsByClassName( 'quantity' )[ 0 ].children.quantity;
 
 		this.addEventListener();
 	}
@@ -56,7 +56,7 @@ class UpdatePrice {
 
 					discountAmount.innerText = `${response.data.discount}%`;
 					singleTicketAmount.innerHTML = response.data.single_price;
-					overallPrice.outerHTML = response.data.total_price;
+					overallPrice.innerText = response.data.total_price;
 
 					// Remove class when finished.
 					this.toggleFormCss()
