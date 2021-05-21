@@ -1,0 +1,22 @@
+{
+  "name": "bart-jaskulski/woo-dynamic-pricing",
+  "description": "Dynamic pricing for WooCommerce",
+  "minimum-stability": "stable",
+  "license": "GPL-3.0-or-later",
+  "version": "1.1.0",
+  "authors": [
+    {
+      "name": "Bartek Jaskulski",
+      "email": "bjaskulski@protonmail.com"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "8.0"
+    }
+  },
+  "require": {
+    "php": "^8.0",
+    "composer/installers": "~1.0"
+  }
+}
